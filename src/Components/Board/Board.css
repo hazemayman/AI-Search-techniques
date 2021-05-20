@@ -1,0 +1,40 @@
+.Board-container {
+  display: flex;
+  flex-direction: row;
+  /* border: 2px solid black; */
+  /* column-gap: 1px; */
+  margin-left: 0px;
+  margin-top: 0px;
+}
+
+.col {
+  display: flex;
+  flex-direction: column;
+  width: 25px;
+  row-gap: 1px;
+  margin: 0;
+  padding: 0;
+}
+
+.Start-button {
+  width: 100px;
+  border-radius: 10%;
+  margin: 5px;
+}
+
+#button-wrapper {
+  display: flex;
+  flex-direction: row;
+  /* width: 300px; */
+  justify-content: center;
+  height: 60px;
+}
+.Delete-button {
+  width: 100px;
+  border-radius: 10%;
+  margin: 5px;
+}
+.Delete-button:hover {
+  background-color: red;
+  margin: 5px;
+}
