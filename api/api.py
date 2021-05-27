@@ -1,4 +1,4 @@
-import api.script as script
+import script as script
 from flask import Flask, request, jsonify
 app = Flask(__name__, static_folder='../build', static_url_path='/')
 

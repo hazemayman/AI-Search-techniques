@@ -334,19 +334,22 @@ class BFS:
                 # calculate g for the current node
                 g = None
                 if len(self.gridBoard.goal_node) > 1:
-                    g = sub_node.node_weight 
+                    g = sub_node.node_weight + node.g
                 else:
                     g = sub_node.node_weight + node.g
 
                 # calculate h for the current node
 
                 minValue = 100000000
-                for goalNode in range(len(self.gridBoard.goal_node)):
-                    if(4*abs(self.gridBoard.goal_node[goalNode].node_position[0] - sub_node.node_position[0]) + 2 + 4*abs(
-                    self.gridBoard.goal_node[goalNode].node_position[1] - sub_node.node_position[1]) < minValue):
-                        minValue = 4*abs(self.gridBoard.goal_node[goalNode].node_position[0] - sub_node.node_position[0]) + 2 + 4*abs(
-                        self.gridBoard.goal_node[goalNode].node_position[1] - sub_node.node_position[1])
-
+                if len(self.gridBoard.goal_node) > 1:
+                    for goalNode in range(len(self.gridBoard.goal_node)):
+                        if(25*abs(self.gridBoard.goal_node[goalNode].node_position[0] - sub_node.node_position[0])+ 25*abs(
+                        self.gridBoard.goal_node[goalNode].node_position[1] - sub_node.node_position[1]) < minValue):
+                            minValue = 25*abs(self.gridBoard.goal_node[goalNode].node_position[0] - sub_node.node_position[0])  + 25*abs(
+                            self.gridBoard.goal_node[goalNode].node_position[1] - sub_node.node_position[1])
+                else:
+                    minValue = abs(self.gridBoard.goal_node[0].node_position[0] - sub_node.node_position[0])  + abs(
+                            self.gridBoard.goal_node[0].node_position[1] - sub_node.node_position[1])
                 h = minValue
 
 
@@ -397,12 +400,17 @@ class BFS:
 
                 # calculate h for the current node
 
+ 
                 minValue = 100000000
-                for goalNode in range(len(self.gridBoard.goal_node)):
-                    if(4*abs(self.gridBoard.goal_node[goalNode].node_position[0] - sub_node.node_position[0]) + 2 + 4*abs(
-                    self.gridBoard.goal_node[goalNode].node_position[1] - sub_node.node_position[1]) < minValue):
-                        minValue = 4*abs(self.gridBoard.goal_node[goalNode].node_position[0] - sub_node.node_position[0]) + 2 + 4*abs(
-                        self.gridBoard.goal_node[goalNode].node_position[1] - sub_node.node_position[1])
+                if len(self.gridBoard.goal_node) > 1:
+                    for goalNode in range(len(self.gridBoard.goal_node)):
+                        if(25*abs(self.gridBoard.goal_node[goalNode].node_position[0] - sub_node.node_position[0])+ 25*abs(
+                        self.gridBoard.goal_node[goalNode].node_position[1] - sub_node.node_position[1]) < minValue):
+                            minValue = 25*abs(self.gridBoard.goal_node[goalNode].node_position[0] - sub_node.node_position[0])  + 25*abs(
+                            self.gridBoard.goal_node[goalNode].node_position[1] - sub_node.node_position[1])
+                else:
+                    minValue = abs(self.gridBoard.goal_node[0].node_position[0] - sub_node.node_position[0])  + abs(
+                            self.gridBoard.goal_node[0].node_position[1] - sub_node.node_position[1])
 
                 h = minValue
 

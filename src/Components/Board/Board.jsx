@@ -29,20 +29,27 @@ class Board extends Component{
 
     randomObs(){
         let percentage = random/100;
+        let k = 10
+        let A = []
         for(var i = 0; i <NUMBER_OF_COLMS;i++){
                 
             for(var j = 0; j <NUMBER_OF_ROWS;j++){
                
-                    let nm = Math.random();
-                    if(nm < percentage){
-                        getNewGridAfterChange(this.state.grid , i , j)
-                        
-                    }
+                 A.push([i,j])
             }
         }
-        this.setState({MousePressedOn : false});
-      
-       
+        for(let i =0; i < A.length-1;i++){
+            setTimeout(() => {
+                let nm = Math.random();
+                if(nm < percentage){
+                    getNewGridAfterChange(this.state.grid , A[i][0] , A[i][1]);
+                    k = k + 10;
+                
+                    this.setState({MousePressedOn : false});
+                }
+            }, k);
+        }
+
 
     }
     componentDidMount(){
@@ -283,7 +290,7 @@ const CreateNode = (col , row) =>{
     return{
         col,
         row,
-        weight : Weights_on ?  generateRandomIntegerInRange(1 , 6): 1 ,
+        weight : Weights_on ?  generateRandomIntegerInRange(10 , 50): 1 ,
         isWall : false,
         isVisted : false,
         isStart : row === Start_node_row && col === Start_node_colm,
