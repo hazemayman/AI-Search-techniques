@@ -341,15 +341,32 @@ class BFS:
                 # calculate h for the current node
 
                 minValue = 100000000
+                
                 if len(self.gridBoard.goal_node) > 1:
-                    for goalNode in range(len(self.gridBoard.goal_node)):
-                        if(25*abs(self.gridBoard.goal_node[goalNode].node_position[0] - sub_node.node_position[0])+ 25*abs(
-                        self.gridBoard.goal_node[goalNode].node_position[1] - sub_node.node_position[1]) < minValue):
-                            minValue = 25*abs(self.gridBoard.goal_node[goalNode].node_position[0] - sub_node.node_position[0])  + 25*abs(
-                            self.gridBoard.goal_node[goalNode].node_position[1] - sub_node.node_position[1])
+                    print('1')
+                    if(sub_node.node_weight <= 1):
+                        print('2')
+                        minValue = abs(self.gridBoard.goal_node[0].node_position[0] - sub_node.node_position[0])  + abs(
+                        self.gridBoard.goal_node[0].node_position[1] - sub_node.node_position[1]) 
+                    else:
+                        print('3')
+                        for goalNode in range(len(self.gridBoard.goal_node)):
+                            if(20*abs(self.gridBoard.goal_node[goalNode].node_position[0] - sub_node.node_position[0])+ 20*abs(
+                            self.gridBoard.goal_node[goalNode].node_position[1] - sub_node.node_position[1]) < minValue):
+                                minValue = 20*abs(self.gridBoard.goal_node[goalNode].node_position[0] - sub_node.node_position[0])  + 20*abs(
+                                self.gridBoard.goal_node[goalNode].node_position[1] - sub_node.node_position[1])
                 else:
-                    minValue = abs(self.gridBoard.goal_node[0].node_position[0] - sub_node.node_position[0])  + abs(
-                            self.gridBoard.goal_node[0].node_position[1] - sub_node.node_position[1])
+                    if(sub_node.node_weight <= 1):
+                        print('4')
+                        minValue = abs(self.gridBoard.goal_node[0].node_position[0] - sub_node.node_position[0]) + abs(
+                                self.gridBoard.goal_node[0].node_position[1] - sub_node.node_position[1]) 
+                    else:
+                        print('5')
+                        for goalNode in range(len(self.gridBoard.goal_node)):
+                            if(20*abs(self.gridBoard.goal_node[goalNode].node_position[0] - sub_node.node_position[0])+ 20*abs(
+                            self.gridBoard.goal_node[goalNode].node_position[1] - sub_node.node_position[1]) < minValue):
+                                minValue = 20*abs(self.gridBoard.goal_node[goalNode].node_position[0] - sub_node.node_position[0])  + 20*abs(
+                                self.gridBoard.goal_node[goalNode].node_position[1] - sub_node.node_position[1])
                 h = minValue
 
 
@@ -375,6 +392,8 @@ class BFS:
 
         if(found):
             print("\n\ngoal is found ! \n\n")
+            print(self.finalGoalNode.g)
+            print('5')
 
     def SearchForPathGreedy(self):
         myQueue = PriorityQueue()
@@ -400,18 +419,33 @@ class BFS:
 
                 # calculate h for the current node
 
- 
                 minValue = 100000000
+                
                 if len(self.gridBoard.goal_node) > 1:
-                    for goalNode in range(len(self.gridBoard.goal_node)):
-                        if(25*abs(self.gridBoard.goal_node[goalNode].node_position[0] - sub_node.node_position[0])+ 25*abs(
-                        self.gridBoard.goal_node[goalNode].node_position[1] - sub_node.node_position[1]) < minValue):
-                            minValue = 25*abs(self.gridBoard.goal_node[goalNode].node_position[0] - sub_node.node_position[0])  + 25*abs(
-                            self.gridBoard.goal_node[goalNode].node_position[1] - sub_node.node_position[1])
+                    print('1')
+                    if(sub_node.node_weight <= 1):
+                        print('2')
+                        minValue = abs(self.gridBoard.goal_node[0].node_position[0] - sub_node.node_position[0])  + abs(
+                        self.gridBoard.goal_node[0].node_position[1] - sub_node.node_position[1]) 
+                    else:
+                        print('3')
+                        for goalNode in range(len(self.gridBoard.goal_node)):
+                            if(20*abs(self.gridBoard.goal_node[goalNode].node_position[0] - sub_node.node_position[0])+ 20*abs(
+                            self.gridBoard.goal_node[goalNode].node_position[1] - sub_node.node_position[1]) < minValue):
+                                minValue = 20*abs(self.gridBoard.goal_node[goalNode].node_position[0] - sub_node.node_position[0])  + 20*abs(
+                                self.gridBoard.goal_node[goalNode].node_position[1] - sub_node.node_position[1])
                 else:
-                    minValue = abs(self.gridBoard.goal_node[0].node_position[0] - sub_node.node_position[0])  + abs(
-                            self.gridBoard.goal_node[0].node_position[1] - sub_node.node_position[1])
-
+                    if(sub_node.node_weight <= 1):
+                        print('4')
+                        minValue = abs(self.gridBoard.goal_node[0].node_position[0] - sub_node.node_position[0]) + abs(
+                                self.gridBoard.goal_node[0].node_position[1] - sub_node.node_position[1]) 
+                    else:
+                        print('5')
+                        for goalNode in range(len(self.gridBoard.goal_node)):
+                            if(20*abs(self.gridBoard.goal_node[goalNode].node_position[0] - sub_node.node_position[0])+ 20*abs(
+                            self.gridBoard.goal_node[goalNode].node_position[1] - sub_node.node_position[1]) < minValue):
+                                minValue = 20*abs(self.gridBoard.goal_node[goalNode].node_position[0] - sub_node.node_position[0])  + 20*abs(
+                                self.gridBoard.goal_node[goalNode].node_position[1] - sub_node.node_position[1])
                 h = minValue
 
                 # h = 4*abs(self.gridBoard.goal_node[0].node_position[0] - sub_node.node_position[0]) + 2 + 4*abs(
@@ -434,7 +468,9 @@ class BFS:
                         sub_node.parent = node
 
         if(found):
+          
             print("\n\ngoal is found ! \n\n")
+          
 
     def SearchForPathUCS(self):
         myQueue = PriorityQueue()
@@ -481,6 +517,7 @@ class BFS:
 
         if(found):
             print("\n\ngoal is found ! \n\n")
+ 
 
     def returnCloseSet(self):
         closeSetReturned = []
