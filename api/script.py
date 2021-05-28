@@ -392,8 +392,6 @@ class BFS:
 
         if(found):
             print("\n\ngoal is found ! \n\n")
-            print(self.finalGoalNode.g)
-            print('5')
 
     def SearchForPathGreedy(self):
         myQueue = PriorityQueue()
