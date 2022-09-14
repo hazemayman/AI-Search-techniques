@@ -1,7 +1,10 @@
+from pickle import TRUE
 import script as script
 from flask import Flask, request, jsonify
-app = Flask(__name__, static_folder='../build', static_url_path='/')
+from flask_cors import CORS
 
+app = Flask(__name__, static_folder='../build', static_url_path='/')
+cors = CORS(app, resources={r"/api/*": {"origins": "*"}})
 
 @app.route('/api/SendData', methods=['GET', 'POST'])
 def get_current_time():
@@ -34,3 +37,5 @@ def get_current_time():
 @app.route('/')
 def index():
     return app.send_static_file('index.html')
+if(__name__ == "__main__"):
+    app.run(debug=TRUE ,host="0.0.0.0")

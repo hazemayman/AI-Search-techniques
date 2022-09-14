@@ -176,7 +176,7 @@ class Board extends Component{
         const sendGrid = ConvertGrid(this.state.grid);
 
         
-        fetch('/api/SendData' , {
+        fetch('http://127.0.0.1:5000/api/SendData' , {
             method : 'POST',
             headers : {
             'Content-Type' : 'application/json',
