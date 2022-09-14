@@ -4,6 +4,15 @@ this project used to compare different searching techniques in a weighted grid w
 
 this project has both frontend created using react, and backend - developed with python -  which contains the implementation of the algorithms and the API endpoints
 
+this simulation contains 
+- BFS
+- DFS
+- UCS
+- DLS
+- IDDS
+- A*
+- Greedy search 
+
 ## Installation
 
 clone this repository locally 
